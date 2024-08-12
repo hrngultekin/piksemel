@@ -1,5 +1,6 @@
 #!/usr/bin/python
 
+
 import piksemel as iks
 
 doc_xml = """
@@ -25,27 +26,27 @@ doc = iks.parseString(doc_xml)
 
 count = 0
 for node in doc:
-    assert(node.type() == iks.TAG or node.type() == iks.DATA)
+    assert node.type() == iks.TAG or node.type() == iks.DATA
     count += 1
-assert(count == 21)
+assert count == 21
 
 count = 0
 for node in doc.tags():
-    assert(node.type() == iks.TAG)
+    assert node.type() == iks.TAG
     count += 1
-assert(count == 10)
+assert count == 10
 
 count = 0
 for node in doc.tags("a"):
-    assert(node.type() == iks.TAG)
-    assert(node.name() == "a")
-    assert(node.getAttribute("foo") == None)
+    assert node.type() == iks.TAG
+    assert node.name() == "a"
+    assert node.getAttribute("foo") is None
     count += 1
-assert(count == 4)
+assert count == 4
 
 count = 0
 for node in doc.tags("item"):
-    assert(node.type() == iks.TAG)
-    assert(node.name() == "item")
+    assert node.type() == iks.TAG
+    assert node.name() == "item"
     count += 1
-assert(count == 4)
+assert count == 4

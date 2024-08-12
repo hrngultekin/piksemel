@@ -1,5 +1,6 @@
 #!/usr/bin/python
 
+
 import piksemel
 
 doc = piksemel.newDocument("lala")
@@ -23,4 +24,3 @@ try:
     doc.prependData("lala")
 except piksemel.NotTag:
     pass
-

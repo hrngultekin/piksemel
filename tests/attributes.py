@@ -11,4 +11,4 @@ doc.setAttribute("b", "")
 doc.setAttribute("a", None)
 doc.setAttribute("c", "42")
 
-assert(doc.toString() == doc_xml)
+assert doc.toString() == doc_xml

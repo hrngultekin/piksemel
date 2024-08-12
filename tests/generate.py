@@ -2,6 +2,7 @@
 
 import piksemel as iks
 
+
 doc_xml = """
 <test>
     <a><b><c/></b></a>
@@ -28,10 +29,9 @@ item.insertData("\n    ")
 doc.insertData("\n    ")
 a = doc.insertTag("a")
 doc.insertData("\n")
-assert(doc.toString() == doc_xml)
+assert doc.toString() == doc_xml
 
 # append test
-
 doc = iks.newDocument("lala")
 a = doc.insertTag("nanik")
 b = a.appendData("lala")
@@ -39,29 +39,26 @@ a = b.appendTag("lolo")
 a = a.appendTag("iki")
 b.appendData("hede")
 doc.firstChild().appendData("fii")
-assert(doc.toString() == "<lala><nanik/>fiilalahede<lolo/><iki/></lala>")
+assert doc.toString() == "<lala><nanik/>fiilalahede<lolo/><iki/></lala>"
 
 # prepend test
-
 doc = iks.newDocument("lala")
 a = doc.insertTag("foo")
 a = a.prependTag("a")
 a = a.prependTag("b")
 a.prependData("hihi").prependData("oh").appendData("i")
 a.appendTag("c")
-assert(doc.toString() == "<lala>ohihihi<b/><c/><a/><foo/></lala>")
+assert doc.toString() == "<lala>ohihihi<b/><c/><a/><foo/></lala>"
 
 # insertNode test
-
 doc = iks.newDocument("a")
 b = iks.newDocument("b")
 b.setAttribute("lal", "foo")
 b = doc.insertNode(b)
 b.setAttribute("lal", "foofff")
-assert(doc.toString() == '<a><b lal="foofff"/></a>')
+assert doc.toString() == '<a><b lal="foofff"/></a>'
 
 # now with append, prepend and insertNode
-
 doc = iks.newDocument("test")
 
 a = iks.newDocument("a")
@@ -81,7 +78,7 @@ node.setAttribute("foo", "lala")
 del item
 node = doc.insertData("\n    ")
 node.appendTag("a").appendData("\n")
-assert(doc.toString() == doc_xml)
+assert doc.toString() == doc_xml
 
 # setData test
 doc = iks.newDocument("a")
@@ -89,6 +86,6 @@ x = doc.insertTag("b")
 x.insertTag("lala")
 y = x.insertTag("bibi")
 y.prependData("hodo")
-assert(x.toString() == "<b><lala/>hodo<bibi/></b>")
+assert x.toString() == "<b><lala/>hodo<bibi/></b>"
 x.setData("merhaba")
-assert(x.toString() == "<b>merhaba</b>")
+assert x.toString() == "<b>merhaba</b>"
